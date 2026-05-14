@@ -1,0 +1,306 @@
+/*  MASTER COEXISTING CSS 
+    Created by Gemini AI, template found in Google.
+*/
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+/* --- LOGIN PAGE REPAIR --- */
+
+.login-container {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    height: 600px; /* Force a specific height so the image scales correctly */
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    margin: 40px auto;
+}
+
+.form-section {
+    flex: 1; /* Takes up exactly half */
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.image-section {
+    flex: 1; /* Takes up the other half */
+    background-color: #f8f9fa; 
+    overflow: hidden; /* Clips the image if it tries to expand */
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* This prevents the "Giant Zoom" - it fits the whole logo inside the box */
+    display: block;
+    padding: 20px; /* Gives the Wildcat some breathing room */
+}
+
+/* --- DASHBOARD SPECIFIC --- */
+.dashboard-wrapper {
+    max-width: 1100px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+.banner {
+    background-color: #4b88f4;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.content-section {
+    padding: 30px;
+}
+
+/* --- REGISTER PAGE REPAIR --- */
+
+/* This targets the container you used in register.php */
+.register-container {
+    max-width: 600px; /* Keeps the form from getting too wide */
+    margin: 50px auto; /* Centers it on the screen */
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Make the inputs inside Register look like the Login ones */
+.register-container input, 
+.register-container select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    display: block;
+}
+
+/* If you are using the "Floating Label" structure in Register too: */
+.register-container .input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+/* Styles the "Register" button specifically */
+input[type="submit"][name="btnregister"] {
+    background-color: #4b88f4;
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="submit"][name="btnregister"]:hover {
+    background-color: #357ae8;
+}
+
+
+/* --- TABLE STYLING --- */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.table th {
+    background-color: #fcfcfc;
+    color: #888;
+    font-size: 13px;
+    text-transform: uppercase;
+}
+
+/* --- REUSABLE COMPONENTS --- */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 25px 15px 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+.input-group label {
+    position: absolute;
+    top: 18px; left: 15px;
+    font-size: 12px; color: #999;
+    transition: 0.2s ease all;
+    pointer-events: none;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: 8px;
+    color: #4b88f4;
+}
+
+/* Styling Select Dropdowns to match Input groups */
+.input-group select {
+    width: 100%;
+    padding: 15px; /* Adjusting padding to match text inputs */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fcfcfc;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    appearance: none; /* Removes default browser arrow for a cleaner look */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg%20xmlns="http://www.w3.org/2000/svg"%20width="24"%20height="24"%20viewBox="0%200%2024%2024"><path%20fill="%23999"%20d="M7%2010l5%205%205-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+}
+
+/* Ensure the select group in the floating label logic doesn't overlap */
+.input-group select:focus {
+    border-color: #4b88f4;
+}
+
+/* Adjusting the specific Student fields margin */
+#studentFields {
+    margin-top: 10px;
+}
+
+
+/* BUTTONS */
+button, .btnLogin {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btnLogin {
+    background: #4b88f4;
+    color: white;
+    padding: 15px;
+    width: 100%;
+}
+
+.btn-update { background: #ffc107; color: black; padding: 5px 10px; }
+.btn-delete { background: #dc3545; color: white; padding: 5px 10px; }
+button a { text-decoration: none; color: inherit; }
+
+/* SHARED CLASSES */
+.subtitle { color: #888; font-size: 14px; margin-bottom: 20px; }
+.action-links a { margin-right: 15px; text-decoration: none; font-size: 14px; color: #4b88f4; }
+
+/* --- UPDATE PAGE STYLES (COEXISTING) --- */
+
+.update-container {
+    max-width: 450px;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the Labels (using your input-group class) */
+label.input-group {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 8px;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Style the Text Inputs */
+.update-container input[type="text"],
+.update-container input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #333;
+    transition: all 0.3s ease;
+    outline: none;
+    background-color: #fcfcfc;
+}
+
+.update-container input:focus {
+    border-color: #4b88f4;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(75, 136, 244, 0.1);
+}
+
+/* Style the Submit Buttons */
+.update-container input[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+/* The Update Button (Blue) */
+input[name="btnupdate"] {
+    background-color: #4b88f4;
+    color: white;
+}
+
+input[name="btnupdate"]:hover {
+    background-color: #3671d1;
+    transform: translateY(-1px);
+}
+
+/* The Reset Button (Yellow/Warning) */
+input[name="btnReset"] {
+    background-color: #ffc107;
+    color: #212529;
+    margin-top: 10px !important; /* Spacing between the two buttons */
+}
+
+input[name="btnReset"]:hover {
+    background-color: #e0a800;
+}
+
+/* Responsive tweak */
+@media (max-width: 480px) {
+    .update-container {
+        margin: 20px;
+        padding: 20px;
+    }
+}
