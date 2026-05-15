@@ -35,7 +35,7 @@
     $email = $_POST['txtemail'];
     $pwd = $_POST['txtpassword'];
 
-    //$hashed_pass = password_hash($pwd, PASSWORD_DEFAULT); // Commented because it lets everyone in.
+    //$hashed_pass = password_hash($pwd, PASSWORD_DEFAULT); // Commented its always incorrect password
 
     //checks if email exists in the database
     $sql = "SELECT * FROM tblusers where user_email = '$email'";

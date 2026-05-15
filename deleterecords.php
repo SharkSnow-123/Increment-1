@@ -14,8 +14,8 @@
         if(mysqli_query($connection, $query)){
             echo "<script>
                     alert('Record deleted successfully!');
-                    window.location='dashboard.php';
                 </script>";
+            header("Location: dashboard.php");
         } else {
             echo "Error deleting record: " . mysqli_error($connection);
         }
@@ -23,3 +23,4 @@
 
 
 ?>
+

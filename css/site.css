@@ -297,10 +297,7 @@ input[name="btnReset"]:hover {
     background-color: #e0a800;
 }
 
-/* Responsive tweak */
-@media (max-width: 480px) {
-    .update-container {
-        margin: 20px;
-        padding: 20px;
-    }
+input[name="btn"] {
+    background-color: #dc3545;
+    color: white;
 }

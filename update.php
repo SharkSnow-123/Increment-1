@@ -36,7 +36,7 @@
         $defaultPass = password_hash("password123", PASSWORD_DEFAULT);
         $query = "UPDATE tblusers SET user_password='$defaultPass' WHERE user_id='$id'";
         mysqli_query($connection, $query);
-        echo "<script>alert('Password reset to password123');</script>";
+         echo "<script>showAlert('success', 'Password Reset', 'Password has been reset to password123.');</script>";
     }
 ?>
 
@@ -52,7 +52,32 @@
         <label for="lastname" >Lastname:</label>
         <input type="text" name="txtlastname" id="lastname" value="<?php echo $currentUser['lastname']; ?>"><br>
         
-        <input type="submit" name="btnupdate" value="Update">
-        <input type="submit" name="btnReset" value="Reset Password" onclick="return confirm('Are you sure?');"> 
+        <div style="display:flex; gap:10px; margin-top:10px;">
+            <!-- Update button uses showConfirm() from footer.php -->
+        <input type="submit" name="btnupdate" value="Update" class="btn-update"
+            onclick="event.preventDefault();
+                showConfirm(
+                    'Update User?',
+                    'Are you sure you want to save these changes?',
+                    'Update',
+                function(){ document.querySelector('[name=btnupdate]').form.submit(); }
+            );">
+
+            <!-- Reset button uses showConfirm() from footer.php -->
+            <input type="submit" name="btnReset" value="Reset Password"
+                onclick="event.preventDefault();
+                    showConfirm(
+                        'Reset Password?',
+                        'This will reset the password to password123.',
+                        'Reset',
+                    function(){ document.querySelector('[name=btnReset]').form.submit(); }
+                );">
+
+            <button type="button" class="btn-cancel" onclick="window.location.href='dashboard.php'">
+        </div>
     </form>
 </div>
+
+<?php 
+    include 'includes/footer.php';
+?>

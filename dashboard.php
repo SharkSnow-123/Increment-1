@@ -46,8 +46,12 @@
                     <td><?php echo $row['user_email'] ?></td>
                     <td><strong><?php echo $row['user_role'] ?></strong></td>
                     <td>
-                        <button class="btn-update"><a href="update.php?id=<?php echo $row['user_id']; ?>">UPDATE</a></button>
-                        <button class="btn-delete"><a href="deleterecords.php?id=<?php echo $row['user_id']; ?>">DELETE</a></button>
+                        <button type="button" class="btn-update"><a href="update.php?id=<?php echo $row['user_id']; ?>">UPDATE</a></button>
+
+
+                        <button type="button" class="btn-delete" onclick="showConfirm('Are you sure you want to delete <?php echo $row['firstname']; ?>?', function() {
+                            window.location.href = 'deleterecords.php?id=<?php echo $row['user_id']; ?>';
+                        })">DELETE</button>
                     </td>
                 </tr>
                 <?php endwhile; ?>
@@ -64,13 +68,31 @@
         <div class="action-links">
             <a href="logout.php" class="link-logout">Logout</a>
         </div>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th><th>Lastname</th><th>Firstname</th>
+                    <th>Email</th><th>Role</th><th>Actions</th>
+                </tr>
+            </thead>
 
-        <!-- Per ari implement ang staff later -->
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-             Natus odit saepe consequuntur consequatur eaque eius molestias? 
-             Nulla et totam neque officia sunt corporis tenetur quasi. 
-             Vero illo ratione consequuntur libero?
-        </p>
+            <tbody>
+                <?php while($row = $resultset -> fetch_assoc()): ?>
+                <tr>
+                    <td><?php echo $row['user_id']; ?></td>
+                    <td><?php echo $row['lastname'] ?></td>
+                    <td><?php echo $row['firstname'] ?></td>
+                    <td><?php echo $row['user_email'] ?></td>
+                </tr>
+                <?php endwhile; ?>
+            </tbody>
+
+
+
+        </table>
+
+
     </div>
 
     <?php elseif ($role === 'Student'): ?>
