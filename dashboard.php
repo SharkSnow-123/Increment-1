@@ -165,15 +165,8 @@
                 </tr>
                 <?php endwhile; ?>
             </tbody>
-
-
          </table>
-
 </div>
-
-    </form> <!-- safety close for any unclosed staff form -->
-
-
 
       <!-- STUDENT UPDATED BY JAZZ -->
        

@@ -74,6 +74,7 @@
                 );">
 
             <button type="button" class="btn-cancel" onclick="window.location.href='dashboard.php'">
+            
         </div>
     </form>
 </div>
