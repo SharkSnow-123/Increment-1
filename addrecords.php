@@ -89,9 +89,9 @@ if (isset($_POST['btnSaveRecord'])) {
         }
 
         if (isset($sqlExtra)) { mysqli_query($connection, $sqlExtra); }
-        header("Location: dashboard.php");
         echo "<script>
-                alert('New $role added successfully!'); 
+                showAlert('success', 'Record Added', 'New user record has been successfully added.');
+                    window.location.href = 'dashboard.php';
             </script>";
         echo "Error: " . mysqli_error($connection);
     }

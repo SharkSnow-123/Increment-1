@@ -46,20 +46,26 @@
 
     if($count == 0){
         echo "<script>
-        alert('Email does not exist!');
+        showAlert('error', 'Login Failed', 'Email does not exist. Please try again.');
         </script>";
     } else if (!password_verify($pwd, $row['user_password'])){
         echo "<script>
-        alert('Incorrect password!');
+        showAlert('error', 'Login Failed', 'Incorrect password. Please try again.');
         </script>";
     } else {
         $_SESSION['user_id'] = $row['user_id'];
         $_SESSION['user_role'] = $row['user_role'];
-        header("Location: dashboard.php");
         echo "<script>
-            alert('Login successful!');
+            showAlert('success', 'Login Successful', 'Welcome back, " . $row['firstname'] . "! Redirecting to dashboard...');
+            setTimeout(function(){
+                window.location.href = 'dashboard.php';
+            }, 2000);
         </script>";
+        
         exit();
 
     }
 }
+?>
+
+<?php include 'includes/footer.php'; ?>

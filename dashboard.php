@@ -21,6 +21,26 @@
 
     <?php if ($role === 'Admin'): ?>
     <!-- ===================== ADMIN SCREEN ===================== -->
+    
+    <?php 
+
+        //Pagination Logic
+        $limit = 7; 
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $offset = ($currentPage - 1) * $limit;
+
+        $totalResult = mysqli_query($connection, "SELECT COUNT(*) AS total FROM tblusers");
+        $totalRow = mysqli_fetch_assoc($totalResult);
+        $totalRecords = $totalRow['total'];
+        $totalPages = ceil($totalRecords / $limit);
+
+        $resultset = mysqli_query($connection, "SELECT * FROM tblusers LIMIT $limit OFFSET $offset");
+    
+    ?>
+
+
+
+
     <div class="content-section">
         <h1>Welcome, Admin!</h1>
         <p class="subtitle">Management portal for Admin use only.</p>
@@ -57,6 +77,46 @@
                 <?php endwhile; ?>
             </tbody>
         </table>
+
+            <!-- ===== PAGINATION CONTROLS ===== -->
+            <div style="display:flex; justify-content:center; align-items:center; gap:8px; margin-top:20px;">
+
+                <!-- Previous button -->
+                <?php if ($currentPage > 1): ?>
+                    <a href="dashboard.php?page=<?php echo $currentPage - 1; ?>" 
+                    style="padding:8px 14px; border:1px solid #ccc; border-radius:6px; text-decoration:none; color:#333;">
+                    &laquo; Prev
+                    </a>
+                <?php endif; ?>
+
+                <!-- Page numbers -->
+                <?php for($i = 1; $i <= $totalPages; $i++): ?>
+                    <a href="dashboard.php?page=<?php echo $i; ?>"
+                    style="padding:8px 14px; border-radius:6px; text-decoration:none;
+                            <?php echo $i === $currentPage 
+                                    ? 'background:#3b82f6; color:white; border:1px solid #3b82f6;' 
+                                    : 'border:1px solid #ccc; color:#333;'; ?>">
+                        <?php echo $i; ?>
+                    </a>
+                <?php endfor; ?>
+
+                <!-- Next button -->
+                <?php if ($currentPage < $totalPages): ?>
+                    <a href="dashboard.php?page=<?php echo $currentPage + 1; ?>"
+                    style="padding:8px 14px; border:1px solid #ccc; border-radius:6px; text-decoration:none; color:#333;">
+                    Next &raquo;
+                    </a>
+                <?php endif; ?>
+
+            </div>
+
+            <!-- Record count info -->
+            <p style="text-align:center; color:#888; font-size:13px; margin-top:8px;">
+                Showing <?php echo $offset + 1; ?>–<?php echo min($offset + $limit, $totalRecords); ?> 
+                of <?php echo $totalRecords; ?> users
+            </p>
+
+        </div>
     </div>
 
     <?php elseif ($role === 'Staff'): ?>

@@ -53,28 +53,23 @@
         <input type="text" name="txtlastname" id="lastname" value="<?php echo $currentUser['lastname']; ?>"><br>
         
         <div style="display:flex; gap:10px; margin-top:10px;">
-            <!-- Update button uses showConfirm() from footer.php -->
-        <input type="submit" name="btnupdate" value="Update" class="btn-update"
-            onclick="event.preventDefault();
-                showConfirm(
-                    'Update User?',
-                    'Are you sure you want to save these changes?',
-                    'Update',
-                function(){ document.querySelector('[name=btnupdate]').form.submit(); }
-            );">
+            <input type="submit" name="btnupdate" value="Update" class="btn-update"
+                onclick="event.preventDefault();
+                    showConfirm('Update User?', 'Are you sure you want to save these changes?', 'Update',
+                    function(){ document.querySelector('[name=btnupdate]').form.submit(); });">
 
-            <!-- Reset button uses showConfirm() from footer.php -->
             <input type="submit" name="btnReset" value="Reset Password"
                 onclick="event.preventDefault();
-                    showConfirm(
-                        'Reset Password?',
-                        'This will reset the password to password123.',
-                        'Reset',
-                    function(){ document.querySelector('[name=btnReset]').form.submit(); }
-                );">
+                    showConfirm('Reset Password?', 'This will reset the password to password123.', 'Reset',
+                    function(){ document.querySelector('[name=btnReset]').form.submit(); });">
+        </div>
 
-            <button type="button" class="btn-cancel" onclick="window.location.href='dashboard.php'">
-            
+        <div style="margin-top:10px;">
+            <button type="button" onclick="window.location.href='dashboard.php'"
+                style="width:100%; padding:10px; background:#e74c3c; color:white; 
+                    border:none; border-radius:8px; cursor:pointer; font-size:14px;">
+                Cancel
+            </button>
         </div>
     </form>
 </div>
