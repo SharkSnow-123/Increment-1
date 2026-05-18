@@ -28,7 +28,7 @@
 
         $query = "UPDATE tblusers SET firstname='$fname', lastname='$lname', user_email='$email' WHERE user_id='$id'";
         mysqli_query($connection, $query);
-        header("Location: dashboard.php");
+        echo "<script>window.location.href='dashboard.php';</script>"; 
     }
 
     // 3. Logic for resetting password
@@ -53,15 +53,9 @@
         <input type="text" name="txtlastname" id="lastname" value="<?php echo $currentUser['lastname']; ?>"><br>
         
         <div style="display:flex; gap:10px; margin-top:10px;">
-            <input type="submit" name="btnupdate" value="Update" class="btn-update"
-                onclick="event.preventDefault();
-                    showConfirm('Update User?', 'Are you sure you want to save these changes?', 'Update',
-                    function(){ document.querySelector('[name=btnupdate]').form.submit(); });">
+            <input type="submit" name="btnupdate" value="Update" class="btn-update">
 
-            <input type="submit" name="btnReset" value="Reset Password"
-                onclick="event.preventDefault();
-                    showConfirm('Reset Password?', 'This will reset the password to password123.', 'Reset',
-                    function(){ document.querySelector('[name=btnReset]').form.submit(); });">
+            <input type="submit" name="btnReset" value="Reset Password">
         </div>
 
         <div style="margin-top:10px;">

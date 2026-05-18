@@ -155,7 +155,7 @@
                     mysqli_query($connection, $logQuery);   
                 }
 
-                header("Location: dashboard.php");
+                    echo "<script>window.location.href='dashboard.php';</script>"; 
                 exit();
 
             }
@@ -255,7 +255,7 @@
             $uploadQuery = "INSERT INTO tbldocument (file_name, number_of_pages, upload_date, user_id)
                             VALUES ('$fileName', '$numPages', NOW(), '$studentUserID')";
             mysqli_query($connection, $uploadQuery);
-            header("Location: dashboard.php");
+            echo "<script>window.location.href='dashboard.php';</script>"; 
             exit();
         }
 
@@ -265,7 +265,7 @@
             $cancelQuery = "UPDATE tblreservation SET status = 'cancelled'
                             WHERE reservation_id = '$cancelID' AND student_id = '$studentID'";
             mysqli_query($connection, $cancelQuery);
-            header("Location: dashboard.php");
+            echo "<script>window.location.href='dashboard.php';</script>"; 
             exit();
         }
 
